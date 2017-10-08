@@ -1,0 +1,3 @@
+[submodule "Elmish.Xamarin.Forms"]
+	path = Elmish.Xamarin.Forms
+	url = https://github.com/csoren/elmish-xamarin-forms.git

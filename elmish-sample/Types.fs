@@ -6,8 +6,10 @@ type Page =
     | About
 
 type Msg =
+    | UpdateMasterPresented of bool
     | UpdateCurrentPage of Page
 
 type Model = 
-    {   currentPage: Page
+    {   masterPresented: bool
+        currentPage: Page
     }

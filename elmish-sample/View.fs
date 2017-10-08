@@ -23,7 +23,7 @@ let detail model dispatch =
 let textCell dispatch text msg =
     textCell [
         TextCellAttribute.Text text
-        OnTapped (UnitEvent <| fun () -> dispatch msg)
+        OnTapped (UnitEvent.Event <| fun () -> dispatch msg)
     ]
 
 let menuTable model dispatch =
@@ -44,14 +44,18 @@ let menuTable model dispatch =
 
 
 let menu model dispatch =
-    contentPage [
-        ContentPageAttribute.Title "Elmish sample"
-        Icon "hamburgericon.png" ]
+    contentPage
+        [   ContentPageAttribute.Title "Elmish sample"
+            Icon "hamburgericon.png"
+        ]
         (menuTable model dispatch)
 
 
 
 let root model dispatch =
     masterDetailPage
+        [   IsPresented model.masterPresented
+            OnIsPresentedChanged (BoolEvent.Event <| (UpdateMasterPresented >> dispatch))
+        ]
         (menu model dispatch)
         (detail model dispatch)

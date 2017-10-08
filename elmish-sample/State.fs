@@ -4,9 +4,18 @@ open ElmishSample.Types
 open Elmish
 
 let init () =
-    { currentPage = About }, Cmd.none
+    {   masterPresented = false
+        currentPage = About
+    },
+    Cmd.none
 
 let update msg model =
     match msg with
+    | UpdateMasterPresented presented ->
+        { model with masterPresented = presented }, Cmd.none
     | UpdateCurrentPage page ->
-        { model with currentPage = page }, Cmd.none
+        { model with
+            masterPresented = false
+            currentPage = page
+        },
+        Cmd.none

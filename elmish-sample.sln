@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "elmish-sample.iOS", "iOS\elmish-sample.iOS.fsproj", "{6CB8EAAA-A8D8-4F22-955F-B6A89950B4B5}"
 EndProject
-Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "elmish-sample.Droid", "Droid\elmish-sample.Droid.fsproj", "{7ED47689-E5BD-4241-A2D1-7EC03726556B}"
+Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "ElmishSample.Droid", "Droid\ElmishSample.Droid.fsproj", "{7ED47689-E5BD-4241-A2D1-7EC03726556B}"
 EndProject
 Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "Elmish.Xamarin.Forms", "Elmish.Xamarin.Forms\Elmish.Xamarin.Forms.fsproj", "{5D841356-F06A-4C0C-B816-670ED78A5548}"
 EndProject

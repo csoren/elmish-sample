@@ -5,8 +5,7 @@ open Elmish
 open Types
 
 let init () =
-    {   name = ""
-    }
+    { name = "" }
 
 let update msg model =
     match msg with

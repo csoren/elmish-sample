@@ -5,8 +5,9 @@ open ElmishSample.Types
 
 let subPage model dispatch page : Elmish.Xamarin.Forms.VirtualDOM.Page =
     match page with
+    | Hello -> Hello.View.root model.hello (HelloMsg >> dispatch)
     | Counter -> Counter.View.root model.counter (CounterMsg >> dispatch)
-    | _ -> About.View.root model dispatch
+    | About -> About.View.root model dispatch
 
 let detail model dispatch =
     navigationPage [

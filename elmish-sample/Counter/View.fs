@@ -8,19 +8,24 @@ let stack model dispatch =
         StackLayoutAttribute.HorizontalOptions Xamarin.Forms.LayoutOptions.FillAndExpand
         StackLayoutAttribute.VerticalOptions Xamarin.Forms.LayoutOptions.FillAndExpand
     ] [
-        button [
-            ButtonAttribute.HorizontalOptions Xamarin.Forms.LayoutOptions.Center
-            ButtonAttribute.Text "-1"
-            OnClicked (UnitEvent.Event <| fun () -> dispatch Decrement)
-        ]
-        button [
-            ButtonAttribute.HorizontalOptions Xamarin.Forms.LayoutOptions.Center
-            ButtonAttribute.Text "+1"
-            OnClicked (UnitEvent.Event <| fun () -> dispatch Increment)
+        stackLayout [
+            StackLayoutAttribute.Orientation Xamarin.Forms.StackOrientation.Horizontal
+            StackLayoutAttribute.HorizontalOptions Xamarin.Forms.LayoutOptions.CenterAndExpand
+        ] [
+            button [
+                ButtonAttribute.HorizontalOptions Xamarin.Forms.LayoutOptions.Center
+                ButtonAttribute.Text "-1"
+                OnClicked (UnitEvent.Event <| fun () -> dispatch Decrement)
+            ]
+            button [
+                ButtonAttribute.HorizontalOptions Xamarin.Forms.LayoutOptions.Center
+                ButtonAttribute.Text "+1"
+                OnClicked (UnitEvent.Event <| fun () -> dispatch Increment)
+            ]
         ]
         label [
             LabelAttribute.HorizontalOptions Xamarin.Forms.LayoutOptions.Center
-            LabelAttribute.Text (string model.count)
+            LabelAttribute.Text (sprintf "Count: %d" model.count)
         ]
     ]
 

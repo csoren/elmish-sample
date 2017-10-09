@@ -8,7 +8,7 @@ let stack model dispatch =
         StackLayoutAttribute.VerticalOptions Xamarin.Forms.LayoutOptions.Center
     ] [
         label [
-            HorizontalTextAlignment Xamarin.Forms.TextAlignment.Center
+            LabelAttribute.HorizontalTextAlignment Xamarin.Forms.TextAlignment.Center
             LabelAttribute.Text "Welcome to Elmish.Xamarin.Forms!"
         ]
     ]

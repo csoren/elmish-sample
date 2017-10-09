@@ -6,10 +6,12 @@ type Page =
     | About
 
 type Msg =
+    | CounterMsg of Counter.Types.Msg
     | UpdateMasterPresented of bool
     | UpdateCurrentPage of Page
 
 type Model = 
     {   masterPresented: bool
         currentPage: Page
+        counter: Counter.Types.Model
     }

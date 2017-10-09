@@ -4,6 +4,10 @@
     <RootNamespace>ElmishSample</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="About\View.fs" />
+    <Compile Include="Counter\Types.fs" />
+    <Compile Include="Counter\State.fs" />
+    <Compile Include="Counter\View.fs" />
     <Compile Include="Types.fs" />
     <Compile Include="State.fs" />
     <Compile Include="View.fs" />
@@ -14,5 +18,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Elmish.Xamarin.Forms\Elmish.Xamarin.Forms.fsproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="About\" />
+    <Folder Include="Counter\" />
   </ItemGroup>
 </Project>

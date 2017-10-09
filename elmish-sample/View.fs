@@ -3,20 +3,14 @@
 open Elmish.Xamarin.Forms.VirtualDOM
 open ElmishSample.Types
 
-let stack model dispatch =
-    stackLayout [
-        VerticalOptions Xamarin.Forms.LayoutOptions.Center
-    ] [
-        label [
-            HorizontalTextAlignment Xamarin.Forms.TextAlignment.Center
-            LabelAttribute.Text "Welcome to Elmish.Xamarin.Forms!"
-        ]
-    ]
+let subPage model dispatch page : Elmish.Xamarin.Forms.VirtualDOM.Page =
+    match page with
+    | Counter -> Counter.View.root model.counter (CounterMsg >> dispatch)
+    | _ -> About.View.root model dispatch
 
 let detail model dispatch =
     navigationPage [
-        contentPage []
-            (stack model dispatch)
+        subPage model dispatch model.currentPage
     ]
 
 
@@ -44,18 +38,15 @@ let menuTable model dispatch =
 
 
 let menu model dispatch =
-    contentPage
-        [   ContentPageAttribute.Title "Elmish sample"
-            Icon "hamburgericon.png"
-        ]
-        (menuTable model dispatch)
-
+    contentPage [
+        ContentPageAttribute.Title "Elmish sample"
+        Icon "hamburgericon.png"
+    ]   (menuTable model dispatch)
 
 
 let root model dispatch =
-    masterDetailPage
-        [   IsPresented model.masterPresented
-            OnIsPresentedChanged (BoolEvent.Event <| (UpdateMasterPresented >> dispatch))
-        ]
-        (menu model dispatch)
+    masterDetailPage [
+        IsPresented model.masterPresented
+        OnIsPresentedChanged (BoolEvent.Event <| (UpdateMasterPresented >> dispatch))
+    ]   (menu model dispatch)
         (detail model dispatch)
